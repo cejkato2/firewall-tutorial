@@ -3,8 +3,6 @@
 import sys, os, subprocess
 from flask import Flask, flash, redirect, render_template, request, session, abort, json
 
-DETACHED_PROCESS = 0x00000008
-
 app = Flask(__name__)
 
 class Attack(object):
