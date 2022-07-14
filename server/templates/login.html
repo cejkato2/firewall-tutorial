@@ -1,0 +1,17 @@
+{% block body %}
+<h2>Login:</h2>
+<form name="login" action="/login/" method=POST>
+<table>
+<tr>
+<td><label for="user">Username:</label></td><td><input name="user" type="text"></td>
+</tr>
+<tr>
+<td><label for="password">Password:</label></td><td><input name="password" type="password"></td>
+</tr>
+</table>
+<input type="submit" value="Login">
+</form>
+
+{% endblock %}
+
+

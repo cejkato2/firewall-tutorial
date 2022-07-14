@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+<h2>List of attacks:</h2>
+<table>
+<tr><th>Name</th><th>Status</th><th>Result</th><th></th></tr>
+{% for a in attacks %}
+<tr><td>{{ a.name }}</td><td>{{ a.status }}</td><td>{{ a.result }}</td><td><a href="/trig-attack/{{ a.name }}">Switch</a></td>
+{% endfor %}
+</table>
+
+{% endblock %}
+

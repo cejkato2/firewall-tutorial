@@ -1,0 +1,42 @@
+<h1>Remotely Triggered BlackHole</h1>
+
+{% if data.err %}
+<p style="color:#900">{{data.err}}</p>
+{% endif %}
+
+<form action="" method="POST">
+<fieldset>
+<legend>Add new rule:</legend>
+<label for="nw_src">Source IP: </label><input type="text" name="nw_src" id="nw_src">
+<label for="nw_dst">Destination IP: </label><input type="text" name="nw_dst" id="nw_dst">
+<input type="submit" value="Apply">
+</fieldset>
+</form>
+
+<hr>
+
+<h2>Existing rules:</h2>
+<table>
+<tr>
+<th>cookie</th>
+<th>duration</th>
+<th>table</th>
+<th>n_packets</th>
+<th>n_bytes</th>
+<th>selector</th>
+<th>actions</th>
+<th>Remove</th>
+</tr>
+{% for fl in data.flows %}
+<tr>
+<td>{{fl.cookie}}</td>
+<td>{{fl.duration}}</td>
+<td>{{fl.table}}</td>
+<td>{{fl.n_packets}}</td>
+<td>{{fl.n_bytes}}</td>
+<td>{{fl.selector}}</td>
+<td>{{fl.actions}}</td>
+<td>{% if fl.actions == "drop" %}<form action="/remove/" method="POST"><input type="hidden" name="selector" value="{{fl.selector}}"><input type="submit" value="Remove"></form>{% endif %}</td>
+</tr>
+{% endfor %}
+</table>

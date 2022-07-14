@@ -1,0 +1,13 @@
+[Unit]
+Description=web application
+After=network.target local-fs.target remote-fs.target
+
+[Service]
+Environment=LANG=C
+PrivateTmp=false
+Restart=always
+
+WorkingDirectory=/vagrant/
+ExecStart=/usr/bin/python3 rtbh.py
+
+

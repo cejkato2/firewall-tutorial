@@ -1,0 +1,8 @@
+#!/sbin/openrc-run
+
+name=attackerwebapp
+command="/vagrant/server.py"
+command_background="yes"
+pidfile="/run/$RC_SVCNAME.pid"
+directory=/vagrant
+
