@@ -16,7 +16,6 @@ done
 if ! vboxmanage list hostonlyifs | grep -q '\<vboxnet0\>'; then
    echo -ne "Creating vboxnet0...\t"
    vboxmanage hostonlyif create
-   ip a a 172.16.10.1/24 b + dev vboxnet0
    echo "done"
 else
    echo -e "\tSkipping creation of the existing vboxnet0 (virtualbox hostonlyif)."
@@ -24,3 +23,9 @@ fi
 
 echo "Starting vagrant up..."
 vagrant up
+
+echo "Set up vboxnet0 local IP"
+sudo ip a a 172.16.10.1/24 b + dev vboxnet0
+
+echo "done.
+
